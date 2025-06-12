@@ -38,6 +38,7 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
@@ -49,6 +50,7 @@
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
@@ -141,7 +143,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding: 120px 0 60px;
         }
 
         .hero::before {
@@ -166,7 +168,7 @@
 
         .hero-text h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -177,14 +179,14 @@
         }
 
         .hero-text .subtitle {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 3vw, 1.25rem);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             font-weight: 400;
         }
 
         .hero-text .description {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: var(--text-muted);
             margin-bottom: 3rem;
             line-height: 1.7;
@@ -345,7 +347,7 @@
 
         .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
             background: var(--gradient-primary);
@@ -355,7 +357,7 @@
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
@@ -445,13 +447,13 @@
         }
 
         .about-text {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             line-height: 1.8;
             color: var(--text-secondary);
         }
 
         .about-text h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             color: var(--text-primary);
             margin-bottom: 1.5rem;
             font-weight: 600;
@@ -487,7 +489,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             margin-top: 4rem;
         }
@@ -561,7 +563,7 @@
         }
 
         .skill-category h3 {
-            font-size: 1.75rem;
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--text-primary);
@@ -573,14 +575,14 @@
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
             line-height: 1.7;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             position: relative;
             z-index: 2;
         }
 
         .programming-skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 1rem;
             position: relative;
             z-index: 2;
@@ -589,7 +591,7 @@
         .programming-skill {
             background: var(--gradient-accent);
             color: white;
-            padding: 0.875rem 1.25rem;
+            padding: 0.875rem 1rem;
             border-radius: 1.5rem;
             font-size: 0.9rem;
             font-weight: 600;
@@ -689,7 +691,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -702,6 +704,9 @@
             transition: var(--transition);
             cursor: pointer;
             position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -754,6 +759,9 @@
 
         .project-content {
             padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-category {
@@ -792,6 +800,7 @@
             color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .project-tech {
@@ -813,6 +822,7 @@
         .project-links {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
         }
 
         .project-link {
@@ -927,6 +937,7 @@
             border-radius: 1.5rem;
             padding: 2rem;
             backdrop-filter: var(--blur);
+            height: 100%;
         }
 
         .card-header {
@@ -1302,7 +1313,13 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Improved */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -1310,9 +1327,18 @@
                 text-align: center;
             }
 
+            .hero-actions {
+                justify-content: center;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 3rem;
+            }
+
+            .profile-card {
+                max-width: 400px;
+                margin: 0 auto;
             }
 
             .music-grid {
@@ -1326,34 +1352,36 @@
             }
 
             .skills-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 2rem;
             }
 
             .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 0 1rem;
+                padding: 0 1.25rem;
             }
 
             .nav-menu {
                 position: fixed;
-                top: 100%;
+                top: 70px;
                 left: 0;
                 right: 0;
                 background: var(--surface);
                 border-top: 1px solid var(--border);
                 flex-direction: column;
                 padding: 2rem;
-                gap: 1rem;
-                transform: translateY(-100%);
+                gap: 1.5rem;
+                transform: translateY(-150%);
                 opacity: 0;
                 visibility: hidden;
                 transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
             }
 
             .nav-menu.active {
@@ -1367,17 +1395,17 @@
             }
 
             .hero {
-                padding-top: 100px;
+                padding: 120px 0 60px;
             }
 
             .hero-actions {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .btn {
-                flex: 1;
+                width: 100%;
                 justify-content: center;
-                min-width: 140px;
             }
 
             .current-track {
@@ -1386,7 +1414,7 @@
             }
 
             .contact-form {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
             }
 
             .map-container {
@@ -1400,6 +1428,7 @@
 
             .projects-filter {
                 gap: 0.5rem;
+                flex-wrap: wrap;
             }
 
             .filter-btn {
@@ -1415,11 +1444,38 @@
             .programming-skills {
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                margin-bottom: 0.75rem;
+            }
+
+            .skill-category {
+                padding: 2rem 1.5rem;
+            }
+
+            .skill-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
             .hero-actions {
                 flex-direction: column;
+                width: 100%;
             }
 
             .btn {
@@ -1431,11 +1487,14 @@
             }
 
             .programming-skills {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
             }
 
             .player-controls {
-                gap: 0.75rem;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .player-btn {
@@ -1447,6 +1506,76 @@
                 width: 52px;
                 height: 52px;
             }
+
+            .contact-form {
+                padding: 1.5rem 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .modal-body {
+                padding: 1.5rem 1rem;
+            }
+
+            .modal-image {
+                height: 200px;
+            }
+
+            .project-card {
+                border-radius: 1rem;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .skill-category {
+                border-radius: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .profile-card {
+                padding: 1.5rem;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Fix for project grid layout */
+        .projects .container {
+            overflow: hidden;
+        }
+
+        /* Fix for project cards equal height */
+        .projects-grid {
+            display: grid;
+            grid-auto-rows: 1fr;
+        }
+
+        /* Fix for music player responsiveness */
+        @media (max-width: 480px) {
+            .volume-control {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .volume-slider {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -1457,7 +1586,7 @@
             <nav class="nav">
                 <div class="logo">KALLZYY</div>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -1476,8 +1605,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>hello I'am Kallzyy</h1>
-                    <p class="subtitle">I'am Frontend Developer and UI Designer</p>
+                    <h1>Hello I'm Kallzyy</h1>
+                    <p class="subtitle">Frontend Developer and UI Designer</p>
                     <p class="description">
                      I create modern, responsive web applications using cutting-edge technologies. Passionate about clean code, beautiful design, and exceptional user experiences.
                     </p>
@@ -1488,10 +1617,15 @@
                         </a>
                         <a href="#projects" class="btn btn-secondary">
                             <i class="fas fa-tools"></i>
-                            My Project
+                            My Projects
                         </a>
                     </div>
                 </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -1500,7 +1634,7 @@
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
                 <p class="section-subtitle">
-                    Get to know more about my journey and passions For creating amazing digital experiences.
+                    Get to know more about my journey and passions for creating amazing digital experiences.
                 </p>
             </div>
             <div class="about-content">
@@ -1578,14 +1712,14 @@
                     <div class="skill-header">
                         <div class="skill-icon">🛠️</div>
                         <h3>Tools & Technologies</h3>
-                        <p>Tools,teknologi dan desain yang saya gunakan dalam workflow pengembangan</p>
+                        <p>Tools, teknologi dan desain yang saya gunakan dalam workflow pengembangan</p>
                     </div>
                     <div class="programming-skills">
                         <span class="programming-skill">Git Hub</span>
                         <span class="programming-skill">VS Code</span>
                         <span class="programming-skill">MySQL</span>
                         <span class="programming-skill">Figma</span>
-                         <span class="programming-skill">Photoshop</span>
+                        <span class="programming-skill">Photoshop</span>
                     </div>
                 </div>
             </div>
@@ -1627,8 +1761,8 @@
                         <div class="project-tech">
                             <span class="tech-tag">Laravel 11</span>
                             <span class="tech-tag">PHP 8.3.16</span>
-                             <span class="tech-tag">Bootsrap 4.6</span>
-                              <span class="tech-tag">enno</span>
+                            <span class="tech-tag">Bootstrap 4.6</span>
+                            <span class="tech-tag">enno</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link">
@@ -1687,6 +1821,33 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card" data-category="web" onclick="openProjectModal('webge')">
+                    <div class="project-image">
+                        <img src="webge.png" alt="Peminjaman Barang">
+                        <div class="project-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category web">Web</span>
+                        <h3 class="project-title">Peminjaman Barang</h3>
+                        <p class="project-description">
+                            Website sistem peminjaman barang dengan fitur tracking dan manajemen inventaris.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://kall2807.github.io/web-peminjaman/" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1720,7 +1881,7 @@
             <div class="section-header">
                 <h2 class="section-title">My Favorite Music</h2>
                 <p class="section-subtitle">
-                    Koleksi musik favorit yang menginspirasi setiap project saya
+                    My favorite music collection
                 </p>
             </div>
             <div class="music-grid">
@@ -1755,7 +1916,7 @@
                                 <div class="song-title">The World Is Ugly</div>
                                 <div class="song-artist">My Chemical Romance</div>
                             </div>
-                            <div class="song-duration">5:11</div>
+                            <div class="song-duration">5:02</div>
                         </div>
                     </div>
                 </div>
@@ -1782,7 +1943,7 @@
                             <span id="currentTime">0:00</span>
                             <span id="totalTime">5:21</span>
                         </div>
-                        <div class="progress-bar" onclick="seekTo(event)">
+                        <div class="progress-bar"  onclick="seekTo(event)">
                             <div class="progress" id="progressBar"></div>
                         </div>
                     </div>
@@ -1890,10 +2051,7 @@
                     <a href="#" class="social-link">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
+                    <a href="https://open.spotify.com/playlist/0Uptqvp2domyDQj4ItzNh5?si=23bed9c8865e4f80" class="social-link">
                         <i class="fab fa-spotify"></i>
                     </a>
                     <a href="#" class="social-link">
@@ -1929,7 +2087,7 @@
                 artist: "My Chemical Romance",
                 icon: "🖤",
                 duration: "5:02",
-                src: "ytmp3free.cc_my-chemical-romance-the-world-is-ugly-official-audio-youtubemp3free.org.mp3"
+                src: "mcr.mp3"
             }
         ];
 
@@ -1964,7 +2122,17 @@
                 image: "image.png",
                 tech: ["C#", "SQL Server", "Crystal Reports", "Windows Forms"],
                 links: [
-                    { icon: "fas fa-download", text: "Download", url: "#" },
+                    { icon: "fab fa-github", text: "GitHub", url: "#" }
+                ]
+            },
+            webge: {
+                title: "Peminjaman Barang",
+                category: "web",
+                description: "Website sistem peminjaman barang dengan fitur tracking dan manajemen inventaris yang lengkap untuk memudahkan proses peminjaman dan pengembalian barang.",
+                image: "webge.png",
+                tech: ["HTML", "CSS", "JavaScript", "LocalStorage"],
+                links: [
+                    { icon: "fas fa-external-link-alt", text: "Live Demo", url: "https://kall2807.github.io/web-peminjaman/" },
                     { icon: "fab fa-github", text: "GitHub", url: "#" }
                 ]
             }
